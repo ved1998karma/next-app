@@ -33,7 +33,7 @@ export default function Navbar() {
                     <Link passHref href="/contact"><a className='sm:mt-0 mt-2 text-lg p-2 text-black'>Contact</a></Link>
                 </div>
                 
-                <h3 className={`${Menu ? "animations sm:mt-0 mt-2 text-lg " : "animation" } sm:hidden block`} onClick={handleClick}>{Menu ? "x" : "="}</h3>
+                {/* <h3 className={`${Menu ? "animations sm:mt-0 mt-2 text-lg " : "animation" } sm:hidden block`} onClick={handleClick}>{Menu ? "x" : "="}</h3> */}
             </nav>
         </div>
     )

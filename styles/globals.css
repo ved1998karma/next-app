@@ -19,3 +19,37 @@
     @apply text-2xl;
   }
 }
+
+body{
+  overflow: hidden;
+}
+
+
+.animation::after {
+  content: "";
+  position: fixed;
+  top: 6%;
+  right: 11%;
+  background-color: #000;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: all .5s ease;
+  opacity: .5;
+
+}
+.animations::after {
+  content: "";
+  position: fixed;
+  top: 5%;
+  right: 8%;
+  background-color: #000;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transition: all .5s ease;
+  transform: scale(130);
+  z-index: 50;
+  opacity: .5;
+  
+}

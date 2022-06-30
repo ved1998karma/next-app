@@ -3,14 +3,14 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 
 export default function Navbar() {
-    const [mobile, setMobile] = useState(true);
+    const [Menu, setMenu] = useState(false);
 
     const handleClick = () => {
-        if (mobile) {
-            setMobile(false)
+        if (Menu) {
+            setMenu(false)
         }
         else {
-            setMobile(true)
+            setMenu(true)
         }
     }
 
@@ -18,20 +18,22 @@ export default function Navbar() {
 
     return (
         <div>
-            <nav className="flex justify-between ">
-                <div className="">
+            <nav className="flex justify-between items-center">
+                <div className="flex justify-between items-center">
                     <Image
                         src="/favicon.ico"
-                        width={80}
-                        height={80} />
+                        width={70}
+                        height={70} />
                 </div>
 
-                <div className='flex justify-between w-6/12 items-center'>
-                    <Link className='sm:mt-0 mt-3' href="/">Home</Link>
-                    <Link className='sm:mt-0 mt-3' href="/about">About</Link>
-                    <Link className='sm:mt-0 mt-3' href="/contact">Contact</Link>
-                    <div className={`${mobile ? "opacity-100 w-8 cursor-pointer absolute top-0 right-0" : "opacity-0 h-0"} sm:hidden block`} onClick={handleClick}>x</div>
+                <div className={Menu ? "mobileMenu transition-all w-screen h-screen fixed top-0 right-0  flex justify-center items-center flex-col "
+                    : "transition-all p-2 border-2 sm:h-fit sm:static sm:block hidden opacity-0 "}>
+                    <Link passHref href="/"><a className='sm:mt-0 mt-2 text-lg p-2 text-black'>Home</a></Link>
+                    <Link passHref href="/about"><a className='sm:mt-0 mt-2 text-lg p-2 text-black'>About</a></Link>
+                    <Link passHref href="/contact"><a className='sm:mt-0 mt-2 text-lg p-2 text-black'>Contact</a></Link>
                 </div>
+                
+                <h3 className={`${Menu ? "animations sm:mt-0 mt-2 text-lg " : "animation" } sm:hidden block`} onClick={handleClick}>{Menu ? "x" : "="}</h3>
             </nav>
         </div>
     )
